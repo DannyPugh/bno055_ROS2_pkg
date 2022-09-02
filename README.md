@@ -13,6 +13,23 @@ This repo was based off of [Michael Drwiega's work on the Bosch IMU Driver for R
 The default mode is I2C.
 To select UART mode connect the `3.3V` pin to the `PS1` pin.
 
+### FT232H USB-to-(UART, I2C) 
+dependencies:
+requires the pyftdi library
+```
+pip install pyftdi
+```
+
+
+When using a FT232H as USB-to-UART Bridge:
+
+| BNO055 | FT232H(Adafruit) |
+| ------ | ---------------- |
+| Vin    |   3.3V           |
+| GND    |   GND            |
+| SDA    |   RXD(D0)        |
+| SCL    |   TXD(D1)        |
+
 ### CP2104 USB-to-UART Bridge
 
 When using a CP2104 USB-to-UART Bridge:

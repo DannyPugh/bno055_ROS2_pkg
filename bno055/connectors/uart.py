@@ -33,6 +33,7 @@ import sys
 
 from bno055.connectors.Connector import Connector
 from rclpy.node import Node
+from pyftdi import serialext 
 import serial
 
 
@@ -55,7 +56,8 @@ class UART(Connector):
         self.node.get_logger().info('Opening serial port: "%s"...' % self.port)
 
         try:
-            self.serialConnection = serial.Serial(self.port, self.baudrate, timeout=self.timeout)
+            #self.serialConnection = serial.Serial(self.port, self.baudrate, timeout=self.timeout)
+            self.serialConnection = serialext.serial_for_url(url=self.port, baudrate = self.baudrate, timeout = self.timeout)
         except serial.serialutil.SerialException:
             self.node.get_logger().info('Unable to connect to IMU at port ' + self.port)
             self.node.get_logger().info('Check to make sure your device is connected')

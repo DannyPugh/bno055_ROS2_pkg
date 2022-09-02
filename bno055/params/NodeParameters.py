@@ -55,7 +55,7 @@ class NodeParameters:
         # The type of the sensor connection. Either "uart" or "i2c":
         node.declare_parameter(name='connection_type', value=UART.CONNECTIONTYPE_UART)
         # UART port
-        node.declare_parameter('uart_port', value='/dev/ttyUSB0')
+        node.declare_parameter('uart_port', value='ftdi://ftdi:232h:1/1')
         # UART Baud Rate
         node.declare_parameter('uart_baudrate', value=115200)
         # UART Timeout in seconds
